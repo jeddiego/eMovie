@@ -1,4 +1,4 @@
-package com.test.test.movies.presentation.application
+package com.rappi.emovie.presentation.application
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

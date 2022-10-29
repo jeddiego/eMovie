@@ -1,44 +1,45 @@
 package com.rappi.splash.presentation.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
+import androidx.fragment.app.activityViewModels
+import com.rappi.core.commons.visible
 import com.rappi.core.fragments.BaseFragment
+import com.rappi.splash.R
 import com.rappi.splash.databinding.FragmentSplashBinding
+import com.rappi.splash.presentation.viewmodel.SplashViewModel
 
 class SplashFragment: BaseFragment<FragmentSplashBinding>() {
-//    private val viewModel: SplashViewModel by activityViewModels()
+    private val viewModel: SplashViewModel by activityViewModels()
 
     override fun initBinding(): FragmentSplashBinding =
         FragmentSplashBinding.inflate(layoutInflater)
 
     override fun initView(view: View, savedInstanceState: Bundle?) {
-//        downloadConfigurations()
-    }
-/*    private fun downloadConfigurations() {
-        viewModel.downloadConfigurations.observe(viewLifecycleOwner) {
-            if(it) {
-                navigate()
-            } else {
-                Toast.makeText(requireContext(), getString(R.string.sync_error), Toast.LENGTH_LONG).show()
-                requireActivity().finish()
-            }
-        }
-/*        lifecycleScope.collectFlow(viewModel.downloadConfigurations) {
-            if(it) {
-                delay(1000)
-                navigate()
-                delay(3000)
-                bind.pbDownloading.visible = true
-            } else {
-                Toast.makeText(requireContext(), getString(R.string.sync_error), Toast.LENGTH_LONG).show()
-                delay(1000)
-                requireActivity().finish()
-            }
-        }*/
-        viewModel.downloadData()
+        downloadConfigurations()
+        Handler(Looper.getMainLooper()).postDelayed({
+            bind.pbDownloading.visible = true
+        }, 3000)
+        showToast("¡Todo bien!")
     }
 
-    private fun navigate(){
+    private fun downloadConfigurations() {
+        viewModel.downloadConfigurations.observe(viewLifecycleOwner) {
+            if(it) {
+                bind.pbDownloading.visible = true
+            } else {
+                showToast(getString(R.string.sync_error))
+                Handler(Looper.getMainLooper()).postDelayed({
+                   requireActivity().finish()
+                }, 4200)
+            }
+        }
+        viewModel.downloadConfigurations()
+    }
+
+/*    private fun navigate(){
         val extras = FragmentNavigatorExtras(bind.ivLogo to "logo")
 
         findNavController().navigate(

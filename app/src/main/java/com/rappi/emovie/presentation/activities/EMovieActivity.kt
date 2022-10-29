@@ -6,7 +6,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.rappi.emovie.R
 import com.rappi.emovie.databinding.ActivityEmovieBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EMovieActivity : AppCompatActivity() {
     private lateinit var bind: ActivityEmovieBinding
     private lateinit var navController: NavController

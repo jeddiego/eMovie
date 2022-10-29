@@ -4,7 +4,9 @@ import com.rappi.core.domain.database.EMovieDatabase
 import com.rappi.core.domain.models.SplashLanguagesModel
 import com.rappi.core.data.utils.asLanguagesEntity
 import com.rappi.core.data.utils.asLanguagesModel
-import com.test.core.domain.datasourceabstraction.SplashLocalDataSource
+import com.rappi.core.domain.datasourceabstraction.SplashLocalDataSource
+import com.rappi.core.domain.entities.GenresEntity
+import com.rappi.core.domain.models.SplashGenresModel
 import javax.inject.Inject
 
 class SplashLocalDataSourceImpl @Inject constructor(
@@ -19,5 +21,10 @@ class SplashLocalDataSourceImpl @Inject constructor(
         room.LanguagesDao().getByIsos(isos).map { it.asLanguagesModel() }
 
     override fun languagesCount(): Int = room.LanguagesDao().countAll()
+
+    override fun genresCount(): Int = room.GenresDao().countAll()
+
+    override fun saveGenres(genres: List<SplashGenresModel>) =
+        room.GenresDao().insert(genres.map { GenresEntity(id = it.id, name = it.name) })
 
 }

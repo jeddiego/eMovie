@@ -5,7 +5,7 @@ import com.rappi.core.data.datasourceimplementations.SplashRemoteDataSourceImpl
 import com.rappi.core.data.usecaseimplementations.SplashGetConfigurationsUseCaseImpl
 import com.rappi.core.domain.datasourceabstraction.SplashRemoteDataSource
 import com.rappi.core.domain.usecaseabstraction.SplashGetConfigurationsUseCase
-import com.test.core.domain.datasourceabstraction.SplashLocalDataSource
+import com.rappi.core.domain.datasourceabstraction.SplashLocalDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
