@@ -12,7 +12,7 @@ import com.rappi.core.commons.collectFlow
 import com.rappi.core.commons.lastVisibleEvents
 import com.rappi.core.commons.visible
 import com.rappi.core.domain.models.MoviesModel
-import com.rappi.core.fragments.BaseFragment
+import com.rappi.core.presentation.fragments.fragments.BaseFragment
 import com.rappi.emovie.R
 import com.rappi.emovie.databinding.FragmentMoviesHomeBinding
 import com.rappi.emovie.movies.presentation.adapters.MoviesAdapter
@@ -54,7 +54,7 @@ class MoviesHomeFragment : BaseFragment<FragmentMoviesHomeBinding>() {
     private fun loadUpcomingMovies() {
         bind.apply {
             val adapter = MoviesAdapter(requireContext()) {
-//                findNavController().navigate(MoviesHomeFragmentDirections.actionMoviesHomeFragmentToMoviesDetailFragment(it))
+                findNavController().navigate(MoviesHomeFragmentDirections.actionMoviesHomeFragmentToMoviesDetailFragment(it))
             }
 
             lifecycleScope.collectFlow(viewModel.upcomingSpinner) { pbUpcoming.visible = it }
@@ -73,7 +73,7 @@ class MoviesHomeFragment : BaseFragment<FragmentMoviesHomeBinding>() {
     private fun loadTopRatedMovies() {
         bind.apply {
             val adapter = MoviesAdapter(requireContext()) {
-//                findNavController().navigate(MoviesHomeFragmentDirections.actionMoviesHomeFragmentToMoviesDetailFragment(it))
+                findNavController().navigate(MoviesHomeFragmentDirections.actionMoviesHomeFragmentToMoviesDetailFragment(it))
             }
 
             lifecycleScope.collectFlow(viewModel.topRatedSpinner) { pbTopRated.visible = it }
@@ -90,13 +90,17 @@ class MoviesHomeFragment : BaseFragment<FragmentMoviesHomeBinding>() {
 
     private fun loadRecommendedMovies() {
         bind.apply {
+            var countRecommended = 0
             val adapter = MoviesRecommendedAdapter(requireContext()) {
-//                findNavController().navigate(MoviesHomeFragmentDirections.actionMoviesHomeFragmentToMoviesDetailFragment(it))
+                findNavController().navigate(MoviesHomeFragmentDirections.actionMoviesHomeFragmentToMoviesDetailFragment(it))
             }
 
             lifecycleScope.collectFlow(viewModel.recommendedMovies) {
-                adapter.setData(it.take(6))
-                showChipFilters(it.take(6))
+                if(countRecommended == 0) {
+                    adapter.setData(it.take(6))
+                    showChipFilters(it.take(6))
+                    countRecommended = 6
+                }
             }
 
             rvRecommended.adapter = adapter

@@ -9,7 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.rappi.core.commons.visible
-import com.rappi.core.fragments.BaseFragment
+import com.rappi.core.presentation.fragments.fragments.BaseFragment
 import com.rappi.emovie.R
 import com.rappi.emovie.databinding.FragmentSplashBinding
 import com.rappi.emovie.splash.presentation.viewmodel.SplashViewModel

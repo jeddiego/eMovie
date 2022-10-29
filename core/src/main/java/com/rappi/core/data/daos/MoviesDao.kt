@@ -13,7 +13,7 @@ interface MoviesDao {
     @Insert(onConflict = REPLACE)
     fun insertMovie(movie: MoviesEntity)
 
-    @Insert
+    @Insert(onConflict = REPLACE)
     suspend fun insertMovies(movies: List<MoviesEntity>)
 
     @Query("SELECT * FROM movies WHERE id = :movieId")

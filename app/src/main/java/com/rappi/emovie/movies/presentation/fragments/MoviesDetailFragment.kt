@@ -1,5 +1,5 @@
 package com.rappi.emovie.movies.presentation.fragments
-/*
+
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
@@ -9,16 +9,15 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.rappi.core.BuildConfig
-import com.rappi.test.databinding.FragmentMoviesDetailBinding
+import com.rappi.core.BuildConfig.CORE_POSTER_BASE_URL
+import com.rappi.core.commons.visible
 import com.rappi.core.domain.models.MoviesModel
-import com.rappi.core.fragments.BaseFragment
-import com.test.test.movies.presentation.commons.visible
+import com.rappi.core.presentation.fragments.fragments.BaseFragment
+import com.rappi.emovie.databinding.FragmentMoviesDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
-class MoviesDetailFragment: BaseFragment<FragmentMoviesDetailBinding>() {
+class MoviesDetailFragment : BaseFragment<FragmentMoviesDetailBinding>() {
     private val args: MoviesDetailFragmentArgs by navArgs()
 
     override fun initBinding(): FragmentMoviesDetailBinding =
@@ -49,7 +48,7 @@ class MoviesDetailFragment: BaseFragment<FragmentMoviesDetailBinding>() {
 
             Glide
                 .with(requireContext())
-                .load("${BuildConfig.CORE_POSTER_BASE_URL}${movie.posterPath}")
+                .load("${CORE_POSTER_BASE_URL}${movie.posterPath}")
                 .into(ivPoster)
         }
     }
@@ -57,11 +56,13 @@ class MoviesDetailFragment: BaseFragment<FragmentMoviesDetailBinding>() {
     private fun loadListeners() {
         bind.apply {
             ivBack.setOnClickListener { findNavController().navigateUp() }
-            btTrailer.setOnClickListener { args.selectedMovie.trailerId?.let { it1 ->
-                watchYoutubeVideo(
-                    it1
-                )
-            } }
+            btTrailer.setOnClickListener {
+                args.selectedMovie.trailerId?.let { movieId: String ->
+                    watchYoutubeVideo(
+                        movieId
+                    )
+                }
+            }
         }
     }
 
@@ -77,4 +78,4 @@ class MoviesDetailFragment: BaseFragment<FragmentMoviesDetailBinding>() {
             requireContext().startActivity(webIntent)
         }
     }
-}*/
+}

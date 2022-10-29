@@ -4,15 +4,35 @@
     android:id="@+id/movies_navigation"
     app:startDestination="@id/splashFragment">
     <fragment
+        android:id="@+id/moviesHomeFragment"
+        android:name="com.rappi.emovie.movies.presentation.fragments.MoviesHomeFragment"
+        android:label="MoviesHomeFragment" >
+        <action
+            android:id="@+id/action_moviesHomeFragment_to_moviesDetailFragment"
+            app:destination="@id/moviesDetailFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesDetailFragment"
+        android:name="com.rappi.emovie.movies.presentation.fragments.MoviesDetailFragment"
+        android:label="MoviesDetailFragment" >
+        <argument
+            android:name="selectedMovie"
+            app:argType="com.rappi.core.domain.models.MoviesModel" />
+    </fragment>
+    <fragment
         android:id="@+id/splashFragment"
         android:name="com.rappi.emovie.splash.presentation.fragments.SplashFragment"
         android:label="SplashFragment" >
         <action
             android:id="@+id/action_splashFragment_to_moviesHomeFragment"
-            app:destination="@id/moviesHomeFragment" />
+            app:destination="@id/moviesHomeFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
     </fragment>
-    <fragment
-        android:id="@+id/moviesHomeFragment"
-        android:name="com.rappi.emovie.movies.presentation.fragments.MoviesHomeFragment"
-        android:label="MoviesHomeFragment" />
 </navigation>

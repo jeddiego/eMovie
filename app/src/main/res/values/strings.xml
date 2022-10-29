@@ -5,6 +5,8 @@
     <string name="trends_title">Tendencia</string>
     <string name="recommended_title">Recomendados para ti</string>
     <string name="release_date_filter">"Lanzadas en %1$s"</string>
+    <string name="play_trailer">Ver trailer</string>
+    <string name="movie_plot">TRAMA DE LA PELÍCULA</string>
 
     <!-- Splash -->
     <string name="sync_error">Error de sincronización, vuelve a intentarlo por favor</string>

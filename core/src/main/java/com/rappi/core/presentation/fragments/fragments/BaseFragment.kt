@@ -1,4 +1,4 @@
-package com.rappi.core.fragments
+package com.rappi.core.presentation.fragments.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
