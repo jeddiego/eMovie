@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">eMovie</string>
+    <string name="premieres_title">Próximos estrenos</string>
+    <string name="empty_msg">No hay datos para mostrar</string>
+    <string name="trends_title">Tendencia</string>
+    <string name="recommended_title">Recomendados para ti</string>
+    <string name="release_date_filter">"Lanzadas en %1$s"</string>
+
+    <!-- Splash -->
+    <string name="sync_error">Error de sincronización, vuelve a intentarlo por favor</string>
 </resources>

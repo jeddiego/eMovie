@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation_emovie"
+    android:id="@+id/movies_navigation"
     app:startDestination="@id/splashFragment">
-
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.rappi.splash.presentation.fragments.SplashFragment"
-        android:label="SplashFragment" />
+        android:name="com.rappi.emovie.splash.presentation.fragments.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_moviesHomeFragment"
+            app:destination="@id/moviesHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moviesHomeFragment"
+        android:name="com.rappi.emovie.movies.presentation.fragments.MoviesHomeFragment"
+        android:label="MoviesHomeFragment" />
 </navigation>

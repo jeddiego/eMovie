@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 rootProject.name = "eMovie"
 include ':app'
 include ':core'
-include ':splash'

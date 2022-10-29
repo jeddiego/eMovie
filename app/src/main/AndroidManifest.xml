@@ -13,10 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EMovie"
-        android:name=".presentation.application.EMovieApplication"
+        android:name=".movies.presentation.application.MoviesApplication"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.activities.EMovieActivity"
+            android:name=".movies.presentation.activities.MoviesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
