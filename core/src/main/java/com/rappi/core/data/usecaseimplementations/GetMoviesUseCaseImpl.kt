@@ -1,21 +1,19 @@
 package com.rappi.core.data.usecaseimplementations
 
-import com.rappi.core.domain.database.EMovieDatabase
+import com.rappi.core.data.utils.LIST_TYPE_TOP_RATED
+import com.rappi.core.domain.datasourceabstraction.MoviesLocalDataSource
 import com.rappi.core.domain.models.MoviesModel
 import com.rappi.core.domain.usecaseabstraction.GetMoviesUseCase
-import com.rappi.core.data.utils.LIST_TYPE_TOP_RATED
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class GetMoviesUseCaseImpl @Inject constructor(
-    private val room: EMovieDatabase
+    private val localDataSource: MoviesLocalDataSource,
 ): GetMoviesUseCase {
 
     override fun getMoviesByListType(listType: Int): Flow<List<MoviesModel>> =
-        room.MoviesDao()
-            .getAllByListType(listType)
+        localDataSource.getAllMoviesByListType(listType)
 
     override fun getRecommendedMovies(): Flow<List<MoviesModel>> =
-        room.MoviesDao()
-            .getAllByListType(LIST_TYPE_TOP_RATED)
+        localDataSource.getAllMoviesByListType(LIST_TYPE_TOP_RATED)
 }

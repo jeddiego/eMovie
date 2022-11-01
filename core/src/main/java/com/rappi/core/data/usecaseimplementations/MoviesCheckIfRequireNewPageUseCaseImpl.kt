@@ -2,7 +2,7 @@ package com.rappi.core.data.usecaseimplementations
 
 import com.rappi.core.domain.usecaseabstraction.MoviesCheckIfRequireNewPageUseCase
 import com.rappi.core.data.utils.Result
-import com.test.core.domain.datasourceabstraction.MoviesLocalDataSource
+import com.rappi.core.domain.datasourceabstraction.MoviesLocalDataSource
 import com.rappi.core.domain.datasourceabstraction.MoviesRemoteDataSource
 import kotlinx.coroutines.withTimeout
 import javax.inject.Inject

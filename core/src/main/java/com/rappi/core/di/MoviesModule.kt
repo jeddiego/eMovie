@@ -7,7 +7,7 @@ import com.rappi.core.data.usecaseimplementations.MoviesCheckIfRequireNewPageUSe
 import com.rappi.core.domain.datasourceabstraction.MoviesRemoteDataSource
 import com.rappi.core.domain.usecaseabstraction.GetMoviesUseCase
 import com.rappi.core.domain.usecaseabstraction.MoviesCheckIfRequireNewPageUseCase
-import com.test.core.domain.datasourceabstraction.MoviesLocalDataSource
+import com.rappi.core.domain.datasourceabstraction.MoviesLocalDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

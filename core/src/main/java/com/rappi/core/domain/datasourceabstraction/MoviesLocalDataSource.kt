@@ -1,4 +1,4 @@
-package com.test.core.domain.datasourceabstraction
+package com.rappi.core.domain.datasourceabstraction
 
 import com.rappi.core.domain.models.MoviesModel
 import kotlinx.coroutines.flow.Flow

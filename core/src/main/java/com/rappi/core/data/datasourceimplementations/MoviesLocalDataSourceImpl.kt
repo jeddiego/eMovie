@@ -3,7 +3,7 @@ package com.rappi.core.data.datasourceimplementations
 import com.rappi.core.domain.database.EMovieDatabase
 import com.rappi.core.domain.models.MoviesModel
 import com.rappi.core.data.utils.asMoviesEntity
-import com.test.core.domain.datasourceabstraction.MoviesLocalDataSource
+import com.rappi.core.domain.datasourceabstraction.MoviesLocalDataSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
